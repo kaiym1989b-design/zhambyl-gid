@@ -29,14 +29,16 @@ body{font-family:Inter,system-ui,sans-serif;background:#0b1a1f;color:var(--ink);
 button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
 
 /* Splash */
-#splash{background:linear-gradient(180deg,#2F7FC9 0%,#4C97D6 35%,#64ADE3 60%,#64ADE3 100%);color:#fff;align-items:center}
-#splash .hero{position:absolute;left:0;right:0;bottom:0;width:100%;height:50%;background:url(images/hero.webp) center bottom/cover no-repeat;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%);mask-image:linear-gradient(180deg,transparent 0,#000 14%)}
-#splash .cloud{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(10px)}
-.sp-content{position:relative;z-index:2;margin-top:14dvh;display:flex;flex-direction:column;align-items:center;gap:16px;padding:0 32px;text-align:center;width:100%}
+/* Figma «0. Бастау»: фон суреті бүкіл экранды жабады (390×980, жоғарғы жағы экранға тураланған),
+   үстінде жоғарыдан төмен мөлдірленетін қабат (Overlay, 520px) */
+#splash{background:#2F7FC9;color:#fff;align-items:center;overflow:hidden}
+#splash .hero{position:absolute;left:0;right:0;top:0;width:100%;height:116.1%;background:url(images/splash.webp) center top/cover no-repeat}
+#splash .overlay{position:absolute;left:0;right:0;top:0;height:61.6%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(14,60,78,.28) 0%,rgba(14,60,78,.14) 45%,rgba(14,60,78,0) 100%)}
+.sp-content{position:relative;z-index:2;margin-top:min(150px,17.8dvh);display:flex;flex-direction:column;align-items:center;gap:16px;padding:0 32px;text-align:center;width:100%}
 .logo{width:104px;height:104px;border-radius:50%;background:var(--amber);display:grid;place-items:center;box-shadow:0 6px 18px rgba(8,30,55,.25)}
 .brand{font-family:"Playfair Display",serif;font-size:36px;text-shadow:0 2px 12px rgba(8,30,55,.35)}
-.tag{font-size:15px;line-height:1.45;text-shadow:0 1px 8px rgba(8,30,55,.5);max-width:300px}
+.tag{font-size:15px;line-height:1.45;text-shadow:0 1px 8px rgba(8,30,55,.5);max-width:326px}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:52px;border-radius:12px;font-weight:700;font-size:16px}
 .btn-amber{background:var(--amber);color:#12262D;box-shadow:0 6px 16px rgba(8,30,55,.22)}
 .btn-teal{background:var(--teal);color:#fff}
@@ -121,10 +123,8 @@ button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
 
 <!-- 0. Splash -->
 <section class="screen on" id="splash">
-  <div class="cloud" style="width:180px;height:40px;top:12%;left:-30px"></div>
-  <div class="cloud" style="width:140px;height:30px;top:22%;right:-20px;opacity:.7"></div>
-  <div class="cloud" style="width:120px;height:24px;top:40%;left:10%;opacity:.5"></div>
   <div class="hero" role="img" aria-label="Тау аңғарындағы саяхатшылар"></div>
+  <div class="overlay"></div>
   <div class="sp-content">
     <div class="logo"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="34" r="22" stroke="#0F3D4C" stroke-width="3.5"/><path d="M32 6l-3 6h6z" fill="#0F3D4C"/><path d="M16 48l11-16 6 8 5-6 10 14z" fill="#0F3D4C"/><circle cx="44" cy="25" r="3" fill="#0F3D4C"/></svg></div>
     <div class="brand">Zhambyl Gid</div>
